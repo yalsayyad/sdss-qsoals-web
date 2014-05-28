@@ -16,9 +16,8 @@
     }
     $current_page = $_REQUEST['page'];
     $offset = 30 * ($current_page - 1);
-    $query = renderQuery($_REQUEST, 1);
-    echo $query;
-    $result = pg_query($dbconn, $query);
+    $query_info = renderQuery($_REQUEST, 1);
+    $result = pg_query_params($dbconn, $query_info['query'], $query_info['params']);
     $assoc_row = pg_fetch_assoc($result);
     $record_count = $assoc_row['count'];
     unset($assoc_row['count']);

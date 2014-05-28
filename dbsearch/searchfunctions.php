@@ -36,7 +36,7 @@
         'FWHM' => array('type' => 'numeric', 'name' => 'FWHM'),
         'gr_flag' => array('type' => 'categorical', 'name' => 'gr_flag'),
         'specid' => array('type' => 'numeric', 'name' => 'Spectroscopic ID'),
-        'sdssname' => array('type' => 'numeric',
+        'sdssname' => array('type' => 'similar',
             'name' => 'Object Designation (hhmmss.ss+ddmmss.s)'),
         'ra' => array('type' => 'numeric', 'name' => 'R.A. (in degrees)'),
         'decl' => array('type' => 'numeric', 'name' => 'Dec. (in degrees)'),
@@ -253,31 +253,31 @@
             array('System' => array(
                 'sid', 'sys_lam_low', 'sys_lam_high', 'sys_grade',
                 'sys_badratioflag', 'sys_systype', 'sys_beta', 'sys_w_ion'),
-              'Quasar' => array('qid', 'qso_z_hw', 'qso_imag'),
               'Line' => array('lid',
                 'line_obs_lam', 'line_w_obs', 'line_w_obserr', 'line_w_rest',
                 'line_w_resterr', 'line_ion_lam', 'line_ion_name', 'line_ly_a',
                 'line_deltaz', 'line_deltav', 'line_snr', 'line_fwhm',
                 'line_gr_flag'),
-              'Other' => array ('specid', 'sdssname', 'ra', 'decl', 'redshift',
-                'psfmag_u','psfmagerr_u', 'psfmag_g', 'psfmagerr_g', 'psfmag_r',
-                'psfmagerr_r', 'psfmag_i', 'psfmagerr_i', 'psfmag_z',
-                'psfmagerr_z', 'a_u', 'lgnh', 'firstmag', 'first_sn',
-                'first_sep','lg_rass_rate', 'rass_sn', 'rass_sep',
-                'twomassmag_j', 'twomassmagerr_j', 'twomassmag_h',
-                'twomassmagerr_h', 'twomassmag_k', 'twomassmagerr_k',
-                'twomass_sep', 'twomass_flag', 'm_i', 'delgi', 'morphology',
-                'scienceprimary', 'mode', 'uniform', 'bestprimtarget',
-                'ts_b_lowz', 'ts_b_hiz', 'ts_b_first', 'ts_b_rosat',
-                'ts_b_serendip', 'ts_b_star', 'ts_b_gal', 'run_best',
-                'mjd_best', 'mjd', 'plate', 'fiber', 'rerun_best',
+              'Quasar (basic)' => array('qid', 'qso_z_hw', 'qso_imag'),
+              'Quasar (frequent)' => array('specid', 'sdssname', 'ra', 'decl',
+                'redshift', 'psfmag_u','psfmagerr_u', 'psfmag_g', 'psfmagerr_g',
+                'psfmag_r', 'psfmagerr_r', 'psfmag_i', 'psfmagerr_i',
+                'psfmag_z', 'psfmagerr_z', 'a_u', 'lgnh', 'mjd', 'plate',
+                'fiber',  'm_i', 'delgi', 'morphology', 'firstmag', 'first_sn'),
+              'Quasar (infrequent)' => array ('first_sep','lg_rass_rate',
+                'rass_sn', 'rass_sep', 'twomassmag_j', 'twomassmagerr_j',
+                'twomassmag_h','twomassmagerr_h', 'twomassmag_k',
+                'twomassmagerr_k', 'twomass_sep', 'twomass_flag', 'm_i',
+                'delgi', 'morphology', 'scienceprimary', 'mode', 'uniform',
+                'bestprimtarget', 'ts_b_lowz', 'ts_b_hiz', 'ts_b_first',
+                'ts_b_rosat', 'ts_b_serendip', 'ts_b_star', 'ts_b_gal',
+                'run_best', 'mjd_best', 'mjd', 'plate', 'fiber', 'rerun_best',
                 'camcol_best', 'field_best', 'obj_best', 'targprimtarget',
                 'ts_t_lowz', 'ts_t_hiz', 'ts_t_first', 'ts_t_rosat',
                 'ts_t_serendip', 'ts_t_star', 'ts_t_gal', 't_psfmag_u',
                 't_psfmagerr_u', 't_psfmag_g', 't_psfmagerr_g', 't_psfmag_r',
                 't_psfmagerr_r', 't_psfmag_i', 't_psfmagerr_i', 't_psfmag_z',
-                't_psfmagerr_z', 'objid', 'oldname_type', 'oldname_desig',
-                'lon', 'lat', 'geopoint')),
+                't_psfmagerr_z', 'objid', 'oldname_type', 'oldname_desig')),
         'cat_join' =>
             array('all' => array(
               'qid','sid','lid','plate','fiber','mjd','redshift','imag',
@@ -289,52 +289,78 @@
         array('cat_sys' => 'Systems', 'cat_line' => 'Lines',
         'cat_qso' => 'Quasars', 'cat_join_all_mv' => 'Join Table (All)',
         'cat_join' => 'Join Table');
-
-    function constructQueryString($attribute, $params){
+    function isTable($table_name){
+        global $tables;
+        return isset($tables[$table_name]);
+    }
+    function isAttribute($attribute_name){
         global $all_attributes;
-        $type = $all_attributes[$attribute]['type'];
-        if ($type == 'numeric'){
-            $m = $params["{$attirbute}_m"];
-            $val = $params["{$attribute}_val"];
-            $modifiers = array('equal' => '==', 'less_than' => '<',
-              'less_than_equal' => '<=', 'greater_than' => '>',
-              'greater_than_equal' => '>=');
-            if ($m == 'between'){
-              $val2 = $params[$attribute . '_val2'];
-              return "$attribute > $val AND $attribute < $val2";
+        return isset($all_attributes[$attribute_name]);
+    }
+    function constructQueryString($attribute, $params, $current_count){
+        global $all_attributes;
+        if (isset($all_attributes[$attribute])){
+            $results = array('param_count' => $current_count);
+            $type = $all_attributes[$attribute]['type'];
+            if ($type == 'numeric'){
+                $m = $params["{$attirbute}_m"];
+                $val = $params["{$attribute}_val"];
+                $modifiers = array('equal' => '==', 'less_than' => '<',
+                    'less_than_equal' => '<=', 'greater_than' => '>',
+                    'greater_than_equal' => '>=');
+                if ($m == 'between'){
+                    $val2 = $params[$attribute . '_val2'];
+                    $results['new_params'][] = $val;
+                    $results['new_params'][] = $val2;
+                    $current_count += 1;
+                    $results['query_string'] = "$attribute > \${$current_count} AND $attribute < \$";
+                    $current_count += 1;
+                    $results['query_string'] .= $current_count;
+                } else {
+                    $modifier = $modifiers[$m];
+                    $current_count += 1;
+                    $results['new_params'][] = $val;
+                    $results['query_string'] = "$attribute $modifier \${$current_count}";
+                }
             } else {
-        $modifier = $modifiers[$m];
-        return "$attribute $modifier $val";
+                $values = $params["{$attribute}"];
+                $current_count += 1;
+                $results['new_params'][] = '{' . implode(', ', $values) . '}';;
+                $results['query_string'] = "$attribute = ANY(\${$current_count})";
             }
+            $results['param_count'] = $current_count;
+            return $results; 
         } else {
-            $values = $params["{$attribute}"];
-            foreach($values as &$value){
-              $value = "'" . $value . "'";
-            }
-            $value_string = implode(",", $values);
-            return "$attribute IN ($value_string)";
+            return NULL;
         }
+        
     }
     function joinQuery($joinVal, $params, $limit, $offset){
-      $columns = $params['column'];
-      $table = $params['table'];
-      $current_page = $params['page'];
-      $offset = 30 * ($current_page - 1);
-      foreach($columns as &$column){
-        $column = "cat_join_all_mv." . $column;
-      }
-      $params['column'] = array($joinVal);
-      $params['join_option'] = 'none';
-      $innerquery = renderQuery($params, 0);
-      $query = renderSelect($columns, $limit, $table);
-      $query .= " INNER JOIN ($innerquery)";
-      $query .= " AS innerTable ON innerTable.$joinVal = $table.$joinVal";
-      if ($limit){
+      if (in_array($joinVal, array('sid', 'lid', 'qid'))){
+        $columns = $params['column'];
+        $table = $params['table'];
+        $current_page = $params['page'];
+        $offset = 30 * ($current_page - 1);
+        foreach($columns as &$column){
+            $column = "cat_join_all_mv." . $column;
+        }
+        $params['column'] = array($joinVal);
+        $params['join_option'] = 'none';
+        $innerquery = renderQuery($params, 0);
+        $query = renderSelect($columns, $limit, $table);
+        $query .= ' INNER JOIN (';
+        $query .= $innerquery['query_string'];
+        $query .= ") AS innerTable ON innerTable.$joinVal = $table.$joinVal";
+        if ($limit){
           $column_string = implode(',', $columns);
           $query .= " GROUP BY $column_string";
           $query .= " LIMIT 30 OFFSET $offset";
+        }
+        return array('query' => $query, 'params' => $innerquery['params']);
       }
-      return $query;
+      else {
+        return NULL;
+      }
     }
     function renderSelect($columnslist, $limit, $table){
       $columns = implode(',', $columnslist);
@@ -345,21 +371,29 @@
       }
     }
     function renderQuery($params, $limit){
+        global $all_attributes;
         $table = $params['table'];
+        $param_count = 0;
+        $query_params = array();
         $attributes = $params['attribute'];
         $current_page = $params['page'];
         $offset = 30 * ($current_page - 1);
+        array_filter($params['column'], "isAttribute");
         if ($params['join_option'] != 'none'){
           return joinQuery($params['join_option'], $params, $limit, $offset);
         }
         $query_clauses = array();
         $query = renderSelect($params['column'], $limit, $table);
-        if ($params['search_space'] != 'full'){
-          $values = $params['search_space_values'];
-          $query_clauses[] = "{$params['search_space']} IN ($values)";
+        if ($params['search_space'] != 'full' && isAttribute($params['search_space'])){
+          $values = '{' . implode(', ', $params['search_space_values']) . '}';
+          $param_count += 1;
+          $query_clauses[] = "{$params['search_space']} = ANY(\${$param_count})";
+          $query_params[] = $values;
         }
         foreach($attributes as $attribute){
-            $query_clauses[] = constructQueryString($attribute, $params);
+            $query_info = constructQueryString($attribute, $params, $param_count);
+            $query_clauses[] = $query_info['query_string'];
+            $query_params = array_merge($query_params, $query_info['new_params']);
         }
         if (!empty($query_clauses)){
             $query .= ' WHERE ';
@@ -370,6 +404,6 @@
             $query .= " GROUP BY $columns";
             $query .= " LIMIT 30 OFFSET $offset";
         }
-        return $query;
+        return array('query' => $query, 'params' => $query_params);
     }
 ?>
