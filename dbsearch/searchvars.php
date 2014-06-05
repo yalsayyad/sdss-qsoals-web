@@ -234,7 +234,8 @@
             'Significance of the line in standard deviations from error'),
         'line_fwhm' => array('type' => 'numeric',
             'name' => 'FWHM of the line (pixels)'),
-        'line_gr_flag' => array('type' => 'categorical', 'name' => 'gr_flag'));
+        'line_gr_flag' => array('type' => 'categorical', 'name' => 'gr_flag'),
+	'qso_agg_ab_sys' => array('type' => 'categorical', 'name'=> 'Aggregate A & B systems'));
     $table_attributes =
       array(
         'cat_line' =>
@@ -263,7 +264,7 @@
                 'redshift', 'psfmag_u','psfmagerr_u', 'psfmag_g', 'psfmagerr_g',
                 'psfmag_r', 'psfmagerr_r', 'psfmag_i', 'psfmagerr_i',
                 'psfmag_z', 'psfmagerr_z', 'a_u', 'lgnh', 'mjd', 'plate',
-                'fiber',  'm_i', 'delgi', 'morphology', 'firstmag', 'first_sn'),
+                'fiber',  'm_i', 'delgi', 'morphology', 'firstmag', 'first_sn', 'qso_agg_ab_sys'),
               'Quasar (infrequent)' => array ('first_sep','lg_rass_rate',
                 'rass_sn', 'rass_sep', 'twomassmag_j', 'twomassmagerr_j',
                 'twomassmag_h','twomassmagerr_h', 'twomassmag_k',
