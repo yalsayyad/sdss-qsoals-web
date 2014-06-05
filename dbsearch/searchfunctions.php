@@ -122,6 +122,7 @@
             $query_info = constructQueryString($attribute, $params, $param_count);
             $query_clauses[] = $query_info['query_string'];
             $query_params = array_merge($query_params, $query_info['new_params']);
+	    $param_count = $query_info['param_count'];
         }
         if (!empty($query_clauses)){
             $query .= ' WHERE ';

@@ -21,8 +21,11 @@
     echo "DEBUG INFO<br>";
     echo $query_info['query'];
     echo '<br>';
+    $i =  1;
     foreach ($query_info['params'] as $param){
-	echo $param;
+	echo '$' . $i .': '. $param;
+	echo '<br>';
+	$i += 1;
     }
     $assoc_row = pg_fetch_assoc($result);
     $record_count = $assoc_row['count'];
