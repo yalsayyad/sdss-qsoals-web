@@ -18,6 +18,12 @@
     $offset = 30 * ($current_page - 1);
     $query_info = renderQuery($_REQUEST, 1);
     $result = pg_query_params($dbconn, $query_info['query'], $query_info['params']);
+    echo "DEBUG INFO<br>";
+    echo $query_info['query'];
+    echo '<br>';
+    foreach ($query_info['params'] as $param){
+	echo $param;
+    }
     $assoc_row = pg_fetch_assoc($result);
     $record_count = $assoc_row['count'];
     unset($assoc_row['count']);

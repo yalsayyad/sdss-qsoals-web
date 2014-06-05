@@ -303,8 +303,9 @@
             $results = array('param_count' => $current_count);
             $type = $all_attributes[$attribute]['type'];
             if ($type == 'numeric'){
-                $m = $params["{$attirbute}_m"];
-                $val = $params["{$attribute}_val"];
+                $m = $params["{$attribute}_m"];
+                echo "M = " . $m;
+		$val = $params["{$attribute}_val"];
                 $modifiers = array('equal' => '==', 'less_than' => '<',
                     'less_than_equal' => '<=', 'greater_than' => '>',
                     'greater_than_equal' => '>=');
@@ -335,8 +336,9 @@
         }
         
     }
-    function joinQuery($joinVal, $params, $limit, $offset){
-      if (in_array($joinVal, array('sid', 'lid', 'qid'))){
+
+/*    function joinQuery($joinVal, $params, $limit, $offset){
+      if (in_array($joinVal, array('sid', 'lid', 'qid')){
         $columns = $params['column'];
         $table = $params['table'];
         $current_page = $params['page'];
@@ -344,10 +346,10 @@
         foreach($columns as &$column){
             $column = "cat_join_all_mv." . $column;
         }
+        $params['join_option'] = 'none';        
         $params['column'] = array($joinVal);
-        $params['join_option'] = 'none';
-        $innerquery = renderQuery($params, 0);
         $query = renderSelect($columns, $limit, $table);
+	$innerquery = renderQuery($params, 0);
         $query .= ' INNER JOIN (';
         $query .= $innerquery['query_string'];
         $query .= ") AS innerTable ON innerTable.$joinVal = $table.$joinVal";
@@ -361,7 +363,8 @@
       else {
         return NULL;
       }
-    }
+    }*/
+
     function renderSelect($columnslist, $limit, $table){
       $columns = implode(',', $columnslist);
       if ($limit){
@@ -370,6 +373,7 @@
           return "SELECT DISTINCT $columns FROM $table";
       }
     }
+
     function renderQuery($params, $limit){
         global $all_attributes;
         $table = $params['table'];
@@ -379,13 +383,13 @@
         $current_page = $params['page'];
         $offset = 30 * ($current_page - 1);
         array_filter($params['column'], "isAttribute");
-        if ($params['join_option'] != 'none'){
+        /*if ($params['join_option'] != 'none'){
           return joinQuery($params['join_option'], $params, $limit, $offset);
-        }
+        }*/
         $query_clauses = array();
         $query = renderSelect($params['column'], $limit, $table);
         if ($params['search_space'] != 'full' && isAttribute($params['search_space'])){
-          $values = '{' . implode(', ', $params['search_space_values']) . '}';
+          $values = '{' . $params['search_space_values'] . '}';
           $param_count += 1;
           $query_clauses[] = "{$params['search_space']} = ANY(\${$param_count})";
           $query_params[] = $values;
