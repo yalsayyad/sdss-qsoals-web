@@ -34,7 +34,7 @@ function fieldCheck(fieldInfo) {
           }
           xmlhttp.open("GET", urlString, true);
           xmlhttp.send();
-          formField.innerHTML += urlString;
+          formField.innerHTML += "Loading form for " + descriptiveName;
           document.getElementById('form_fields').appendChild(formField);
         }
         unhideElement(fieldName + '_form');
