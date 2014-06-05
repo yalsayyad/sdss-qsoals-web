@@ -304,7 +304,6 @@
             $type = $all_attributes[$attribute]['type'];
             if ($type == 'numeric'){
                 $m = $params["{$attribute}_m"];
-                echo "M = " . $m;
 		$val = $params["{$attribute}_val"];
                 $modifiers = array('equal' => '==', 'less_than' => '<',
                     'less_than_equal' => '<=', 'greater_than' => '>',
@@ -337,8 +336,8 @@
         
     }
 
-/*    function joinQuery($joinVal, $params, $limit, $offset){
-      if (in_array($joinVal, array('sid', 'lid', 'qid')){
+    function joinQuery($joinVal, $params, $limit, $offset){
+      if (in_array($joinVal, array('sid', 'lid', 'qid'))) {
         $columns = $params['column'];
         $table = $params['table'];
         $current_page = $params['page'];
@@ -346,24 +345,24 @@
         foreach($columns as &$column){
             $column = "cat_join_all_mv." . $column;
         }
-        $params['join_option'] = 'none';        
+	$params['join_option'] = 'none';        
         $params['column'] = array($joinVal);
-        $query = renderSelect($columns, $limit, $table);
 	$innerquery = renderQuery($params, 0);
-        $query .= ' INNER JOIN (';
-        $query .= $innerquery['query_string'];
+	$query = renderSelect($columns, $limit, $table);
+	$query .= ' INNER JOIN (';
+        $query .= $innerquery['query'];
         $query .= ") AS innerTable ON innerTable.$joinVal = $table.$joinVal";
         if ($limit){
           $column_string = implode(',', $columns);
           $query .= " GROUP BY $column_string";
           $query .= " LIMIT 30 OFFSET $offset";
         }
-        return array('query' => $query, 'params' => $innerquery['params']);
+	return array('query' => $query, 'params' => $innerquery['params']);
       }
       else {
         return NULL;
       }
-    }*/
+    }
 
     function renderSelect($columnslist, $limit, $table){
       $columns = implode(',', $columnslist);
@@ -383,9 +382,9 @@
         $current_page = $params['page'];
         $offset = 30 * ($current_page - 1);
         array_filter($params['column'], "isAttribute");
-        /*if ($params['join_option'] != 'none'){
+        if ($params['join_option'] != 'none'){
           return joinQuery($params['join_option'], $params, $limit, $offset);
-        }*/
+        }
         $query_clauses = array();
         $query = renderSelect($params['column'], $limit, $table);
         if ($params['search_space'] != 'full' && isAttribute($params['search_space'])){
