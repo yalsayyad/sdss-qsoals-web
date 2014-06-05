@@ -2,7 +2,7 @@
     $page_title = "Browse/Query Database";
     include '../includes/header.html';
     include_once '../auth.php';
-    include_once 'searchfunctions.php';
+    include_once 'searchvars.php';
     require_once '../includes/funcs.inc';
 ?>
 <div class="col_2">
