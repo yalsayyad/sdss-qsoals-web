@@ -3,7 +3,6 @@
     include '../includes/header.html';
     include_once '../auth.php';
     require_once '../includes/funcs.inc';
-    include_once 'searchvars.php';
     include_once 'searchfunctions.php';
 ?>
 <div class="col_2">

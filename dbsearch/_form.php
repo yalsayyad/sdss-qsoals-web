@@ -30,8 +30,6 @@
         echo '</ul>';
       }
       else if ($type == 'similar'){
-        //TODO: Add functionality to searchfunctions
-        echo "Note: functionality not yet implemented";
         echo "<select name='{$attribute}_m' id='{$attribute}_drop'>";
         echo "<option value='begins_with'>begins with</option>";
         echo "<option value='ends_with'>ends with</option>";

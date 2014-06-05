@@ -1,4 +1,5 @@
 <?php
+    include_once 'searchvars.php';
     function isTable($table_name){
 	global $tables;
         return isset($tables[$table_name]);
@@ -12,27 +13,41 @@
         if (isset($all_attributes[$attribute])){
             $results = array('param_count' => $current_count);
             $type = $all_attributes[$attribute]['type'];
-            if ($type == 'numeric'){
+            if ($type == 'numeric' || $type == 'similar'){
                 $m = $params["{$attribute}_m"];
                 $val = $params["{$attribute}_val"];
-                $modifiers = array('equal' => '==', 'less_than' => '<',
-                    'less_than_equal' => '<=', 'greater_than' => '>',
-                    'greater_than_equal' => '>=');
-                if ($m == 'between'){
-                    $val2 = $params[$attribute . '_val2'];
-                    $results['new_params'][] = $val;
-                    $results['new_params'][] = $val2;
-                    $current_count += 1;
-                    $results['query_string'] = "$attribute > \${$current_count} AND $attribute < \$";
-                    $current_count += 1;
-                    $results['query_string'] .= $current_count;
-                } else {
-                    $modifier = $modifiers[$m];
-                    $current_count += 1;
-                    $results['new_params'][] = $val;
-                    $results['query_string'] = "$attribute $modifier \${$current_count}";
-                }
-            } else {
+		if ($type == 'numeric') {
+	                $modifiers = array('equal' => '==', 'less_than' => '<',
+        	            'less_than_equal' => '<=', 'greater_than' => '>',
+                	    'greater_than_equal' => '>=');
+                	if ($m == 'between'){
+                    		$val2 = $params[$attribute . '_val2'];
+                    		$results['new_params'][] = $val;
+                    		$results['new_params'][] = $val2;
+                    		$current_count += 1;
+                    		$results['query_string'] = "$attribute > \${$current_count} AND $attribute < \$";
+                    		$current_count += 1;
+                    		$results['query_string'] .= $current_count;
+			} else {
+                    		$modifier = $modifiers[$m];
+                    		$current_count += 1;
+                    		$results['new_params'][] = $val;
+                    		$results['query_string'] = "$attribute $modifier \${$current_count}";
+                	}
+		} else {
+			if ($m == 'begins_with'){
+				$results['new_params'][] = $val . '%';
+			} elseif ($m == 'ends_with'){			
+				$results['new_params'][] = '%' . $val;
+			} elseif ($m == 'contains'){
+				$results['new_params'][] = '%' . $val . '%';
+			} else {
+				$results['new_params'][] = $val;
+			}
+			$current_count += 1;
+			$results['query_string'] = "$attribute LIKE \${$current_count}";
+		}
+	    } else {
                 $values = $params["{$attribute}"];
                 $current_count += 1;
                 $results['new_params'][] = '{' . implode(', ', $values) . '}';;
