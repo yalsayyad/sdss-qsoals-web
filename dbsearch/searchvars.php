@@ -34,7 +34,7 @@
         'deltav' => array('type' => 'numeric', 'name' => 'deltav'),
         'SN' => array('type' => 'numeric', 'name' => 'SV'),
         'FWHM' => array('type' => 'numeric', 'name' => 'FWHM'),
-        'gr_flag' => array('type' => 'categorical', 'name' => 'gr_flag'),
+        'gr_flag' => array('type' => 'categorical', 'name' => 'Grade flag'),
         'specid' => array('type' => 'numeric', 'name' => 'Spectroscopic ID'),
         'sdssname' => array('type' => 'similar',
             'name' => 'Object Designation (hhmmss.ss+ddmmss.s)'),
@@ -43,7 +43,7 @@
         'redshift' => array('type' => 'numeric', 'name' => 'Redshift'),
         'psfmag_u' => array('type' => 'numeric', 'name' => 'u PSF magnitude'),
         'psfmagerr_u' => array('type' => 'numeric',
-            'name' => 'error in u PSF magnitude'),
+            'name' => 'u PSF magnitude error'),
         'psfmag_g' => array('type' => 'numeric', 'name' => 'g PSF magnitude'),
         'psfmagerr_g' => array('type' => 'numeric',
             'name' => 'g PSF magnitude error'),
@@ -202,7 +202,7 @@
         'sys_systype' => array('type' => 'categorical',
             'name' => 'System type'),
         'sys_beta' => array('type' => 'numeric',
-            'name' => 'Velocity (v/c) of the absorber in the QSO rest-frame'),
+            'name' => 'Beta (v/c) using Hewett & Wild 2010 redshifts'),
         'sys_w_ion' => array('type' => 'categorical',
             'name' => 'Weak ion presence'),
         'line_obs_lam' => array('type' => 'numeric',
@@ -218,13 +218,13 @@
             'name' => '1-sigma error (in Angstroms) rest-frame
             equivalent width'),
         'line_ion_lam' => array('type' => 'numeric',
-            'name' => 'Laboratory wavelength of transition (Angstroms)'),
+            'name' => 'Laboratory vacuum wavelength of transition (Angstroms)'),
         'line_ion_name' => array('type' => 'categorical',
             'name' => 'Name of species'),
         'line_ly_a' => array('type' => 'options', 'options' => array('
                 longward of Ly-a emission line',
                 'Shortward of Ly-a emission line'),
-            'name' => 'ly_a'),
+            'name' => 'Ly-a Flag'),
         'line_deltaz' => array('type' => 'numeric', 'name' =>
             'Difference between redshift of the line and
             average redshift of system'),
@@ -234,7 +234,7 @@
             'Significance of the line in standard deviations from error'),
         'line_fwhm' => array('type' => 'numeric',
             'name' => 'FWHM of the line (pixels)'),
-        'line_gr_flag' => array('type' => 'categorical', 'name' => 'gr_flag'),
+        'line_gr_flag' => array('type' => 'categorical', 'name' => 'Grade Flag'),
 	'qso_agg_ab_sys' => array('type' => 'categorical', 'name'=> 'Aggregate A & B systems'));
     $table_attributes =
       array(
