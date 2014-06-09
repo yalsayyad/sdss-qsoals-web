@@ -183,7 +183,7 @@
         'objid' => array('type' => 'numeric', 'name' => 'BestObjID'),
         'oldname_type' => array('type' => 'categorical',
             'name' => 'Object Name Prefix if previously published'),
-        'oldname_desig' => array('type' => 'categorical',
+        'oldname_desig' => array('type' => 'similar',
             'name' => 'Object Name if previously published'),
         'lon' => array('type' => 'numeric', 'name' => 'R.A.'),
         'lat' => array('type' => 'numeric', 'name' => 'Declination (degrees)'),
