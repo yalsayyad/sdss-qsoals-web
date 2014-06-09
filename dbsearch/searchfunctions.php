@@ -17,7 +17,7 @@
                 $m = $params["{$attribute}_m"];
                 $val = $params["{$attribute}_val"];
 		if ($type == 'numeric') {
-	                $modifiers = array('equal' => '==', 'less_than' => '<',
+	                $modifiers = array('equal' => '=', 'less_than' => '<',
         	            'less_than_equal' => '<=', 'greater_than' => '>',
                 	    'greater_than_equal' => '>=');
                 	if ($m == 'between'){
