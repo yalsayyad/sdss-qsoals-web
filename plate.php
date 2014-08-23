@@ -37,6 +37,9 @@ printPlateForm($_REQUEST['plate']);
 if ($_POST){
     $plate  = $_REQUEST['plate'];
     echo '<table class="sortable tight striped" cellspacing="0" cellpadding="0">';
+    echo '<col align="right"><col align="right"><col align="right"><col align="right"><col align="right">
+    <col align="right"><col align="right"><col align="right"><col align="left">';
+
     echo '<thead><tr><th>Fiber</th>';
     echo '<th><i class="icon-sort"></i> Plate</th>';
     echo '<th><i class="icon-sort"></i> MJD</th>';
@@ -47,25 +50,26 @@ if ($_POST){
     echo '<th><i class="icon-sort"></i> i Mag </th>';
     echo '<th><i class="icon-sort"></i> System Grades </th></tr></thead>';
 
-    $queryStr = 'SELECT q.name, q.specid,  q.mjd, q.plate, q.fiber, q.redshift, q.cra, q.cdec, q.imag, ';
-    $queryStr .= 'grades.systemgrade from qso q ';
+    $queryStr = 'SELECT q.sdssname, q.specid,  q.mjd, q.plate, q.fiber, q.redshift, q.ra, q.decl, q.psfmag_i, ';
+    $queryStr .= 'grades.systemgrade from qsos q ';
     $queryStr .= 'LEFT JOIN (SELECT specid, array_agg(grade) systemgrade FROM cat_sys s INNER JOIN cat_qso q ON s.qid = q.qid  GROUP BY q.specid) grades  ';
     $queryStr .= 'ON (q.specid = grades.specid) WHERE q.plate = ' . $plate;
     $dbconn = dbconnect();
+
     $result = pg_query($dbconn, $queryStr);
     #$result = pg_query_params($dbconn, $queryStr, Array(strval($plate)));
     while ($row = pg_fetch_array($result)) {
          $grades =  str_getcsv(trim($row['systemgrade'], '{}'));
          sort($grades);
          $gradesSorted = implode(', ', $grades);
-         echo "<tr><td><a href=fiber.php?specid=" .$row['specid'] . "> ".$row['fiber'] . "</a> </td>";
+         echo "<tr><td style='text-align:right'><a href=fiber.php?specid=" .$row['specid'] . "> ".$row['fiber'] . "</a> </td>";
          echo "<td>" . $row['plate']. "</td>";
          echo "<td>" . $row['mjd']. "</td>";
-         echo "<td>" . $row['name']. "</td>";
-         echo "<td>" . $row['cra']. "</td>";
-         echo "<td>" . $row['cdec']. "</td>";
-         echo "<td>" . $row['redshift']. "</td>";
-         echo "<td>" . $row['imag']. "</td>";
+         echo "<td>". $row['sdssname']. "</td>";
+         echo "<td style='text-align:right'>" . $row['ra']. "</td>";
+         echo "<td style='text-align:right'>" . $row['decl']. "</td>";
+         echo "<td>" .$row['redshift']. "</td>";
+         echo "<td>" . $row['psfmag_i']. "</td>";
          echo "<td>" . $gradesSorted . "</td></tr>";
          
     }
