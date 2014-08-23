@@ -21,7 +21,7 @@ function printPlateForm($defaultPlate) {
     }
     echo '<option value="0">-- Choose --</option>';
     $dbconn = dbconnect();
-    $queryStr = "SELECT distinct plate from qso order by plate";
+    $queryStr = "SELECT distinct plate from qsos order by plate";
     $result = pg_query($dbconn, $queryStr);
     while ($row = pg_fetch_array($result)) {
         echo "<option value='" . $row['plate'] . "'>" . $row['plate'] . " </option>";

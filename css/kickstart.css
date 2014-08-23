@@ -220,7 +220,7 @@ table.striped{}
 
 /* tight */
 table.tight{}
-	table.tight th, .tight td{padding:2px 5px;font-size:0.8em}
+	table.tight th, .tight td{padding:2px 5px;font-size:1.0em}
 
 /* sortable */
 table.sortable{border:1px solid #ddd;}

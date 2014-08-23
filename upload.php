@@ -67,9 +67,9 @@ if ($_POST['uploaded'] || $_POST['searched']) {
             $lat = floatval($arrLine[1]);
             $lon = ra2lon(floatval($arrLine[0]));
             $radMeter = $radius * $ARCSECONDS2METERS;
-            $queryStr = "SELECT ROUND(CAST(cra AS numeric),5), ROUND(CAST(cdec AS numeric),4), ";
-            $queryStr .= "name, plate,  fiber, mjd, ROUND(CAST(redshift as numeric),2), ROUND(CAST(imag as numeric),2) , specid ";
-            $queryStr .= "from qso WHERE geopoint && ";
+            $queryStr = "SELECT ROUND(CAST(ra AS numeric),5), ROUND(CAST(decl AS numeric),4), ";
+            $queryStr .= "sdssname, plate,  fiber, mjd, ROUND(CAST(redshift as numeric),2), ROUND(CAST(psfmag_i as numeric),2) , specid ";
+            $queryStr .= "from qsos WHERE geopoint && ";
             $queryStr .= "ST_Buffer(ST_GeographyFromText('SRID=4035;POINT(" . $lon . " " . $lat . ")'), ";
             $queryStr .= " " . $radMeter . ")";
             //htmlspecialchars
