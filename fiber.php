@@ -22,13 +22,13 @@ $queryStr = "SELECT balcode FROM minibal WHERE specid = $1";
 $result = pg_query_params($dbconn, $queryStr, Array($specid));
 $balauto = pg_fetch_array($result);
 
-$plusOrMinus = substr($row['name'],9,1);
-$nedObjName=$row['name'];
+$plusOrMinus = substr($row['sdssname'],9,1);
+$nedObjName=$row['sdssname'];
 if ($plusOrMinus == '+'){
     $nedObjName = substr($nedObjName,0,9) . '%2B' . substr($nedObjName,10,18);
 }
 
-$morphologyStatus = ($row['morphologyFlag']==0) ? "Point Source" : "Extended Source"; 
+$morphologyStatus = ($row['morphologyFlag']==0) ? "Point Source" : "Extended Source";
 ?>
 
 

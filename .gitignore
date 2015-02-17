@@ -1,13 +1,27 @@
-codegraveyard
 dbsearch/test.php
 php_check.php
 tables.php
 search.php
-_form.php
-_tableform.php
 output.php
 searchfunctions.php
 test.php
 auth1.php
+auth.php
 data
 css/.DS_Store
+
+# Eclipse Files
+################
+.settings
+.project
+.buildpath
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight*
+.Trashes
+ehthumbs.db
+Thumbs.db
