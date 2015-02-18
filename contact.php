@@ -53,7 +53,13 @@ require_once 'includes/funcs.inc';
 	</address>
 </p>
 
-<h2> Team? </h2>
+<h2> Team </h2>
 <section id="team">
-Do we want to put a list of current and previous students and collaborators here?
+<address>
+  <p>
+          Noah Baskes<br />
+          University of Chicago <br />
+          nabaskes -at- uchicago.edu
+  </p>
+</address>
 
