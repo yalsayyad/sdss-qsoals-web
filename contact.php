@@ -37,7 +37,7 @@ require_once 'includes/funcs.inc';
 <p> Questions relating to this catalog release or available python code should be directed to:
 	<address>
 		<p>
-			Britt Lundgren <br />
+			Britt F. Lundgren <br />
 			University of Wisconsin <br />
 			lundgren -at - astro.wisc.edu
 		</p>
