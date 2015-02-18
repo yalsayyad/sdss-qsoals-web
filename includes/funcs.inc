@@ -83,10 +83,6 @@ function print2row($row){
 }
 
 
-function dbconnect(){
-    return pg_connect("host=localhost port=5432 dbname=dr7dev user=sdss password=w3bqu3ry");
-}
-
 function ra2lon($ra){
     if ($ra > 180.0){
         

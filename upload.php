@@ -8,8 +8,7 @@ require_once 'includes/funcs.inc';
 </div>
 
 <div class="col_10">
-<h2> Join on R.A./Dec coordinates </h2> 
-    
+<h2> Search by R.A./Dec coordinates </h2>
 
 <?php
 
@@ -67,9 +66,9 @@ if ($_POST['uploaded'] || $_POST['searched']) {
             $lat = floatval($arrLine[1]);
             $lon = ra2lon(floatval($arrLine[0]));
             $radMeter = $radius * $ARCSECONDS2METERS;
-            $queryStr = "SELECT ROUND(CAST(cra AS numeric),5), ROUND(CAST(cdec AS numeric),4), ";
-            $queryStr .= "name, plate,  fiber, mjd, ROUND(CAST(redshift as numeric),2), ROUND(CAST(imag as numeric),2) , specid ";
-            $queryStr .= "from qso WHERE geopoint && ";
+            $queryStr = "SELECT ROUND(CAST(ra AS numeric),5), ROUND(CAST(decl AS numeric),4), ";
+            $queryStr .= "sdssname, plate,  fiber, mjd, ROUND(CAST(redshift as numeric),2), ROUND(CAST(psfmag_i as numeric),2) , specid ";
+            $queryStr .= "from qsos WHERE geopoint && ";
             $queryStr .= "ST_Buffer(ST_GeographyFromText('SRID=4035;POINT(" . $lon . " " . $lat . ")'), ";
             $queryStr .= " " . $radMeter . ")";
             //htmlspecialchars
@@ -78,7 +77,6 @@ if ($_POST['uploaded'] || $_POST['searched']) {
                 $coord_id = $arrLine[2];
             }
             $result = pg_query($dbconn, $queryStr);
-                
             $numRows = pg_num_rows($result);
             if ($numRows > 0){
                   while ($row = pg_fetch_row($result)) {
@@ -131,12 +129,23 @@ For example:<br>
 ?>
 
 <ul class="tabs left">
-    <li><a href="#upload-file">Upload File</a></li>
     <li><a href="#enter-text">Enter Text</a></li>
+    <li><a href="#upload-file">Upload File</a></li>
+
+
 </ul>
 
-<div id="upload-file" class="tab-content">
+<div id="enter-text" class="tab-content">
+    <form  id="list-form" class="vertical" action="upload.php" method="post">
+         <label for="radisArcsec">Search Radius (in arcseconds)</label>
+        <input name="radiusArcsec" type="text" value="<?PHP echo $defaultRadius; ?>" />
+        <textarea name="radeclist"><?PHP echo $defaultText; ?></textarea>
+        <input type='submit' value='Search' name='submit'>
+        <input type='reset' name='reset'>
+        <input type='hidden' name='searched' value='searched'> </form>
+</div>
 
+<div id="upload-file" class="tab-content">
     <form id="upload-form" class="vertical" action="upload.php" method="post" enctype="multipart/form-data"> 
         <label for="radisArcsec">Search Radius (in arcseconds)</label>
         <input name="radiusArcsec" type="text" value="<?PHP echo $defaultRadius; ?>"  />
@@ -147,16 +156,5 @@ For example:<br>
     </form>
 </div>
 
-<div id="enter-text" class="tab-content">
-    <form  id="list-form" class="vertical" action="upload.php" method="post">
-         <label for="radisArcsec">Search Radius (in arcseconds)</label>
-        <input name="radiusArcsec" type="text" value="<?PHP echo $defaultRadius; ?>" />       
-        <textarea name="radeclist"><?PHP echo $defaultText; ?></textarea>
 
-      
-        <input type='submit' value='Search' name='submit'>
-        <input type='reset' name='reset'>
-        <input type='hidden' name='searched' value='searched'> </form>
 </div>
-</div>
-    

@@ -5,57 +5,51 @@ include 'includes/header.html';
 
 
 <div class="col_12">
+<h3> SDSS DR7 Quasar Absorption Line Catalog</h3>
 	<div class="col_6">
-        <img src="http://placehold.it/550x350/4D99E0/ffffff.png&text=550x350" width="550" height="350" />
-        </div>
- <div class="col_6">
-    The recently-completed SDSS Quasar Absorption Line (QSOALS) catalog ... blah blah blah
-    
-    
-    	Lorem ipsum dolor sit amet, consectetuer <em>adipiscing elit</em>, sed diam nonummy nibh euismod 
-	tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis 
-	nostrud exerci tation <strong>ullamcorper suscipit lobortis</strong> nisl ut aliquip ex ea commodo consequat. 
-	Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat</p>
+        <img src="images/cartoon_qsoals2.jpg" width="550" height="350" />
+     </div>
+	 <div class="col_6">
+	 	<p> Since its first light in 2000, the Sloan Digital Sky Survey
+	 		(<a href="sdss.org">SDSS</a>) has been accumulating the spectra
+	 		of quasars of redshift  0.05 < z< 5.8 and to a depth of <em>r < 22</em>.
 
-	<p>El illum dolore eu <span class="icon" data-icon="2"></span> feugiat nulla facilisis at vero eros et accumsan et iusto odio 
-	dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam 
-	liber tempor cum soluta nobis eleifend <code>&lt;h1&gt;Sample Code&lt;/h1&gt;</code> option 
-	congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-	
-	<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-	magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
-	nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
-	molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim 
-	qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum 
-	soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+	 		As the light from these quasars travels billions of light years 
+	 		to reach our telescope, it is absorbed by gas in foreground galaxies 
+	 		and the intergalactic medium along the way. 
+
+	 		By mapping and studying the absorption features in 
+	 		spectroscopic quasar surveys we can better understand 
+	 		how gas and dust  in the Universe has evolved 
+	 		over the last 10 Billion years.
 	</div>
-	
+<div>
+<div class="col_12">
+ 	<p> We have undertaken a census of metal absorption lines in the 
+ 		<a href="http://classic.sdss.org/dr7/products/value_added/qsocat_dr7.html">
+ 			DR7 SDSS quasar sample </a> 
+ 			(<a href="http://adsabs.harvard.edu/abs/2010AJ....139.2360S">
+			Schnieder et al. (2010) </a>).
+
+        These absorption lines are grouped into "systems," 
+        	groups of ions appearing at the same redshift.
+		Please see York et al. (2015) for complete details.
+
+ 	<p> This website provides access to the absorption line system (QSOALS) catalog and quasar spectra,
+ 	 both the SDSS reduced spectra and continuum-normalized spectra convenient for absorption line studies.
+ 	<p>
+
+    </div>
 	<hr />
-	
-	<div class="col_3">
-	<h4>Column</h4>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-	magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
-	</div>
-	
-	<div class="col_3">
-	<h4>Column</h4>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-	magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
-	</div>
-	
-	<div class="col_3">
-	<h4>Column</h4>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-	magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
-	</div>
-	
-	<div class="col_3">
-	<h4>Column</h4>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-	magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
-	</div>
+
+	<!- More info we need to add to the front page goes here-->
+	<div class="col_6">
+	<h4> </h4>
+	<p></p>	</div>
+	<div class="col_6">
+	<h4> </h4>
+	<p></p>	</div>
+
 </div>
 
 </div><!-- END GRID -->
