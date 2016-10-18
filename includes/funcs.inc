@@ -1,5 +1,5 @@
 <?php
-
+require_once 'auth.php';
 define("ARCSECONDS2METERS", 6371000.0/206265.0);
 define("METERS2ARCSECONDS", 206265.0/6371000.0);
 
