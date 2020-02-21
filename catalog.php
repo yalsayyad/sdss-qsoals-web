@@ -55,6 +55,21 @@ require_once 'includes/funcs.inc';
 	<th>Description</th>
 </tr></thead>
 <tbody><tr>
+	<td>plate</td>
+	<td>int</td>
+	<td>SDSS Spectroscopic Plate Number</td>
+</tr><tr>
+<tbody><tr>
+	<td>fiber</td>
+	<td>int</td>
+	<td>SDSS Spectroscopic Fiber Number</td>
+</tr><tr>
+<tbody><tr>
+	<td>mjd</td>
+	<td>int</td>
+	<td>Modified Julian Date of Observation</td>
+</tr><tr>
+<tbody><tr>
 	<td>ra_deg</td>
 	<td>float</td>
 	<td>Right ascension of quasar in degrees</td>
