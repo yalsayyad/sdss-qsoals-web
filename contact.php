@@ -47,8 +47,8 @@ require_once 'includes/funcs.inc';
 	<address>
 		<p>
 			Yusra AlSayyad <br />
-			University of Washington <br />
-			yusra -at- astro.washington.edu
+			Princeton University <br />
+			yusra -at- astro.princeton.edu
 		</p>
 	</address>
 </p>
