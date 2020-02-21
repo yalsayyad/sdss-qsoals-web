@@ -84,7 +84,7 @@ $morphologyStatus = ($row['morphologyFlag']==0) ? "Point Source" : "Extended Sou
 <a class='button blue'
    href="http://nedwww.ipac.caltech.edu/cgi-bin/nph-objsearch?objname=SDSS+J<?php echo $nedObjName ?>&extend=yes&out_csys=Equatorial&out_equinox=J2000.0&obj_sort=RA+or+Longitude&of=pre_text&zv_breaker=30000.0&list_limit=5&img_stamp=YES">NED References</a>
 <a class='button blue'
-   href='http://skyserver.sdss.org/dr12/en/tools/chart/Navi.aspx?ra=<?php echo $row['ra'] ?>&dec=<?php echo $row['decl'] ?>&opt=G' target="_blank">Sloan Navigate</a>
+   href='http://skyserver.sdss.org/dr16/en/tools/chart/Navi.aspx?ra=<?php echo $row['ra'] ?>&dec=<?php echo $row['decl'] ?>&opt=G' target="_blank">Sloan Navigate</a>
 <input class='blue' type="submit" name="Submit" value="Search for galaxies">
  within 
 <input type="text" name="radius" value="1.0">
