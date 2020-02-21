@@ -70,6 +70,11 @@ require_once 'includes/funcs.inc';
 	<td>Modified Julian Date of Observation</td>
 </tr><tr>
 <tbody><tr>
+	<td>z_qso</td>
+	<td>float</td>
+	<td>Quasar Redshift (Hewett & Wild 2010)</td>
+</tr><tr>
+<tbody><tr>
 	<td>ra_deg</td>
 	<td>float</td>
 	<td>Right ascension of quasar in degrees</td>
