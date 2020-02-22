@@ -162,6 +162,34 @@ require_once 'includes/funcs.inc';
 	<td>float</td>
 	<td>FIRST 20cm signal to noise</td>
 </tr><tr>
+	<td>sep_FIRST</td>
+	<td>float</td>
+	<td>FIRST source separation (arcsec)</td>
+</tr><tr>
+	<td>iab_Mag</td>
+	<td>float</td>
+	<td>Quasar i-band absolute magnitude </td>
+</tr><tr>
+	<td>z_fgal</td>
+	<td>float</td>
+	<td>Redshift of identified foreground galaxy </td>
+</tr><tr>
+	<td>spec_aveSNR</td>
+	<td>float</td>
+	<td>Mean signal to noise of the full spectrum</td>
+</tr><tr>
+	<td>spec_medSNR</td>
+	<td>float</td>
+	<td>Median signal to noise of the full spectrum</td>
+</tr><tr>
+	<td>spec_aveSNR_red</td>
+	<td>float</td>
+	<td>Mean signal to noise >7200 Angstroms</td>
+</tr><tr>
+	<td>spec_medSNR_red</td>
+	<td>float</td>
+	<td>Median signal to noise >7200 Angstroms</td>
+</tr><tr>
 	<td>...</td>
 	<td>...</td>
 	<td>...</td>
