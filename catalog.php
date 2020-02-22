@@ -37,7 +37,7 @@ require_once 'includes/funcs.inc';
 <p>
 	The FITS table containing the full output from our DR7 QSOALS
         pipeline can be downloaded here:<br>
-        <a hfref="data/DR7_QSOALS_catalog_071614.tar.gz"> DR7
+        <a href="data/DR7_QSOALS_catalog_071614.tar.gz"> DR7
         Master Catalog (Last updated July 16, 2014)</a>
 
 
