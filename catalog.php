@@ -99,8 +99,13 @@ require_once 'includes/funcs.inc';
 	<td>Declination of quasar (hexigesimal)</td>
 </tr><tr>
 	<td>BAL_flag</td>
-	<td>float</td>
+	<td>int</td>
 	<td>Broad Absorption Line (BAL) quasar flag </td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>0 = not identified as a BALQS </td>
+	
 </tr><tr>
 	<td>...</td>
 	<td>...</td>
