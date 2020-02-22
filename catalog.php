@@ -30,7 +30,7 @@ require_once 'includes/funcs.inc';
 
 
 <div class="col_10" data-spy="scroll" data-target=".navbar">
-<h2> <em>[Britt's Page]</em> </h2>
+<h2> <em>Catalog Access</em> </h2>
 <p> Include as many sections and as much info as we need:
 <section id="download">
 <h3> Download</h3>
@@ -43,7 +43,7 @@ require_once 'includes/funcs.inc';
 
 
 <section id="description">
-<h3> Description </h3>
+<h3> Catalog Data Model </h3>
 
 <p>Tables to list the columns and data types. For example:
 <p>
