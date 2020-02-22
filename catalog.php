@@ -57,35 +57,50 @@ require_once 'includes/funcs.inc';
 <tbody><tr>
 	<td>plate</td>
 	<td>int</td>
-	<td>SDSS Spectroscopic Plate Number</td>
+	<td>SDSS spectroscopic plate number</td>
 </tr><tr>
 <tbody><tr>
 	<td>fiber</td>
 	<td>int</td>
-	<td>SDSS Spectroscopic Fiber Number</td>
+	<td>SDSS spectroscopic fiber number</td>
 </tr><tr>
 <tbody><tr>
 	<td>mjd</td>
 	<td>int</td>
-	<td>Modified Julian Date of Observation</td>
+	<td>Modified Julian Date of observation</td>
 </tr><tr>
 <tbody><tr>
 	<td>z_qso</td>
 	<td>float</td>
-	<td>Quasar Redshift (Hewett & Wild 2010)</td>
+	<td>Quasar redshift (Hewett & Wild 2010)</td>
 </tr><tr>
+<tbody><tr>
+	<td>imag</td>
+	<td>float</td>
+	<td>Quasar i-band PSF magnitude</td>
+</tr><tr>
+
 <tbody><tr>
 	<td>ra_deg</td>
 	<td>float</td>
-	<td>Right ascension of quasar in degrees</td>
+	<td>Right ascension of quasar (degrees)</td>
 </tr><tr>
 	<td>dec_deg</td>
 	<td>float</td>
-	<td>declination of quasar  in degrees</td>
+	<td>Declination of quasar (degrees)</td>
 </tr><tr>
-	<td>redshift</td>
+<tbody><tr>
+	<td>ra_hex</td>
 	<td>float</td>
-	<td>redshift of quasar per Hewett and Wild (2010)</td>
+	<td>Right ascension of quasar (hexigesimal)</td>
+</tr><tr>
+	<td>dec_hex</td>
+	<td>float</td>
+	<td>Declination of quasar (hexigesimal)</td>
+</tr><tr>
+	<td>BAL_flag</td>
+	<td>float</td>
+	<td>Broad Absorption Line (BAL) quasar flag </td>
 </tr><tr>
 	<td>...</td>
 	<td>...</td>
