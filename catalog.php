@@ -100,7 +100,7 @@ require_once 'includes/funcs.inc';
 </tr><tr>
 	<td>BAL_flag</td>
 	<td>int</td>
-	<td>Broad Absorption Line (BAL) quasar flag </td>
+	<td>Broad Absorption Line (BAL) quasar flag: </td>
 </tr><tr>
 	<td></td>
 	<td></td>
@@ -117,6 +117,30 @@ require_once 'includes/funcs.inc';
 	<td></td>
 	<td></td>
 	<td>20 = Ambiguous BAL candidate (D. VandenBerk) </td>	
+	</tr><tr>
+<td>BAL_flag2</td>
+	<td>int</td>
+	<td>Alternate BALQSO flag: </td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>0 = not identified as a BALQSO </td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>1 = BAL identified by Gibson et al. 2009</td>	
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>2 = BAL identified by Y. Shen et al. 2011 only </td>	
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>3 = BAL identified by S. Wesolowski only </td>	
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>4 = BAL identified by both S. Wesolowski and Y. Shen </td>	
 </tr><tr>
 	<td>...</td>
 	<td>...</td>
