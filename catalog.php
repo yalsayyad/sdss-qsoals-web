@@ -117,8 +117,8 @@ require_once 'includes/funcs.inc';
 	<td></td>
 	<td></td>
 	<td>20 = Ambiguous BAL candidate (D. VandenBerk) </td>	
-	</tr><tr>
-<td>BAL_flag2</td>
+</tr><tr>
+	<td>BAL_flag2</td>
 	<td>int</td>
 	<td>Alternate BALQSO flag: </td>
 </tr><tr>
@@ -141,7 +141,8 @@ require_once 'includes/funcs.inc';
 	<td></td>
 	<td></td>
 	<td>4 = BAL identified by both S. Wesolowski and Y. Shen </td>	
-<td>target_FIRST</td>
+</tr><tr>
+	<td>target_FIRST</td>
 	<td>int</td>
 	<td>FIRST target flag: </td>
 </tr><tr>
