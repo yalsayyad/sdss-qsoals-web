@@ -141,6 +141,25 @@ require_once 'includes/funcs.inc';
 	<td></td>
 	<td></td>
 	<td>4 = BAL identified by both S. Wesolowski and Y. Shen </td>	
+<td>target_FIRST</td>
+	<td>int</td>
+	<td>FIRST target flag: </td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>0 = not targeted</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>1 = targeted</td>
+</tr><tr>
+	<td>20cm_flux</td>
+	<td>float</td>
+	<td>FIRST 20cm flux</td>
+</tr><tr>
+	<td>20cm_snr</td>
+	<td>float</td>
+	<td>FIRST 20cm signal to noise</td>
 </tr><tr>
 	<td>...</td>
 	<td>...</td>
@@ -154,8 +173,8 @@ require_once 'includes/funcs.inc';
 
 	<p> Britt, lots of options for code formatting. 
 <pre>
-import pyfits
-data = pyfits.open('DR7_QSOALS_catalog_071614.fits')
+from astropy.io import fits
+data = fits.open('DR7_QSOALS_catalog_071614.fits')
 </pre>
 
 There's also an inline tag <code> data = pyfits.open('DR7_QSOALS_catalog_071614.fits')</code>
