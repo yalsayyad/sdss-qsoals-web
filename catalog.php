@@ -31,7 +31,7 @@ require_once 'includes/funcs.inc';
 
 <div class="col_10" data-spy="scroll" data-target=".navbar">
 <h2> <em>Catalog Access</em> </h2>
-# <p> Include as many sections and as much info as we need:
+<!--  <p> Include as many sections and as much info as we need: -->
 <section id="download">
 <h3> Download</h3>
 <p>
@@ -104,8 +104,19 @@ require_once 'includes/funcs.inc';
 </tr><tr>
 	<td></td>
 	<td></td>
-	<td>0 = not identified as a BALQS </td>
-	
+	<td>0 = not identified as a BALQSO </td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>1 = BAL identified </td>	
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>10 = BAL identified (D. VandenBerk, private comm.) </td>	
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>20 = Ambiguous BAL candidate (D. VandenBerk) </td>	
 </tr><tr>
 	<td>...</td>
 	<td>...</td>
