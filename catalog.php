@@ -234,7 +234,7 @@ require_once 'includes/funcs.inc';
 </tr></tbody>
 </table>
 
-<h4>Absorption System Data</h4>
+<h3>Absorption System Data</h3>
 <p>
 <!-- Table -->
 <table class="tight striped">
