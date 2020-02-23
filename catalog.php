@@ -45,7 +45,7 @@ require_once 'includes/funcs.inc';
 <section id="description">
 <h3> Catalog Data Model </h3>
 
-<h4>Quasar Data</h4>
+<strong>Quasar Data</strong>
 <p>
 <!-- Table -->
 <table class="tight striped">
@@ -234,7 +234,7 @@ require_once 'includes/funcs.inc';
 </tr></tbody>
 </table>
 
-<h3>Absorption System Data</h3>
+<strong>Absorption System Data</strong>
 <p>
 <!-- Table -->
 <table class="tight striped">
