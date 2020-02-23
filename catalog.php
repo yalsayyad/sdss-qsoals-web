@@ -234,7 +234,7 @@ require_once 'includes/funcs.inc';
 </tr></tbody>
 </table>
 
-<p><strong>Absorption System-Level Data</strong>
+<p><strong>Absorption System-Level Data:</strong>
 <p>
 <!-- Table -->
 <table class="tight striped">
@@ -244,13 +244,29 @@ require_once 'includes/funcs.inc';
 	<th>Description</th>
 </tr></thead>
 <tbody><tr>
-	<td>plate</td>
-	<td>int</td>
-	<td>SDSS spectroscopic plate number</td>
+	<td>z_abs</td>
+	<td>float</td>
+	<td>Redshift of absorption system</td>
 </tr><tr>
-	<td>plate</td>
-	<td>int</td>
-	<td>SDSS spectroscopic plate number</td>
+	<td>grade</td>
+	<td>str</td>
+	<td>Quality grade of absorption identification</td>
+</tr><tr>
+	<td>type</td>
+	<td>str</td>
+	<td>Code describing the method(s) of detection:</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>M = Detected by a search for Mg II doublets</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>C = Detected by a search for C IV doublets</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>F = Detected by a search for 3+ Fe II lines </td>
 </tr><tr>
 </table>
 
