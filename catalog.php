@@ -45,7 +45,7 @@ require_once 'includes/funcs.inc';
 <section id="description">
 <h3> Catalog Data Model </h3>
 
-<p>Quasar Level Information
+<p>Quasar Data
 <p>
 <!-- Table -->
 <table class="tight striped">
@@ -59,28 +59,22 @@ require_once 'includes/funcs.inc';
 	<td>int</td>
 	<td>SDSS spectroscopic plate number</td>
 </tr><tr>
-<tbody><tr>
 	<td>fiber</td>
 	<td>int</td>
 	<td>SDSS spectroscopic fiber number</td>
 </tr><tr>
-<tbody><tr>
 	<td>mjd</td>
 	<td>int</td>
 	<td>Modified Julian Date of observation</td>
 </tr><tr>
-<tbody><tr>
 	<td>z_qso</td>
 	<td>float</td>
 	<td>Quasar redshift (Hewett & Wild 2010)</td>
 </tr><tr>
-<tbody><tr>
 	<td>imag</td>
 	<td>float</td>
 	<td>Quasar i-band PSF magnitude</td>
 </tr><tr>
-
-<tbody><tr>
 	<td>ra_deg</td>
 	<td>float</td>
 	<td>Right ascension of quasar (degrees)</td>
@@ -89,7 +83,6 @@ require_once 'includes/funcs.inc';
 	<td>float</td>
 	<td>Declination of quasar (degrees)</td>
 </tr><tr>
-<tbody><tr>
 	<td>ra_hex</td>
 	<td>float</td>
 	<td>Right ascension of quasar (hexigesimal)</td>
@@ -245,6 +238,25 @@ require_once 'includes/funcs.inc';
 </tr></tbody>
 </table>
 
+<p>Absorption System Data
+<p>
+<!-- Table -->
+<table class="tight striped">
+<thead><tr>
+	<th>Name</th>
+	<th>Type</th>
+	<th>Description</th>
+</tr></thead>
+<tbody><tr>
+	<td>plate</td>
+	<td>int</td>
+	<td>SDSS spectroscopic plate number</td>
+</tr><tr>
+	<td>plate</td>
+	<td>int</td>
+	<td>SDSS spectroscopic plate number</td>
+</tr><tr>
+</table>
 
 <section id="examples">
 <h3> Code Examples </h3>
