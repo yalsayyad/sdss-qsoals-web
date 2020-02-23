@@ -45,7 +45,7 @@ require_once 'includes/funcs.inc';
 <section id="description">
 <h3> Catalog Data Model </h3>
 
-<p>Quasar Data
+<h4>Quasar Data</h4>
 <p>
 <!-- Table -->
 <table class="tight striped">
@@ -231,14 +231,10 @@ require_once 'includes/funcs.inc';
 	<td>num_5sigma_unided_notinLyA</td>
 	<td></td>
 	<td>Number of absorption lines detected at >5sigma outside of the Ly-alpha forest</td>
-</tr><tr>
-	<td>...</td>
-	<td>...</td>
-	<td>...</td>
 </tr></tbody>
 </table>
 
-<p>Absorption System Data
+<h4>Absorption System Data</h4>
 <p>
 <!-- Table -->
 <table class="tight striped">
