@@ -45,7 +45,7 @@ require_once 'includes/funcs.inc';
 <section id="description">
 <h3> Catalog Data Model </h3>
 
-<p>Tables to list the columns and data types. For example:
+<p>Quasar Level Information
 <p>
 <!-- Table -->
 <table class="tight striped">
@@ -189,6 +189,55 @@ require_once 'includes/funcs.inc';
 	<td>spec_medSNR_red</td>
 	<td>float</td>
 	<td>Median signal to noise >7200 Angstroms</td>
+</tr><tr>
+	<td>w_limits</td>
+	<td>float array</td>
+	<td>Absorption equivalent width detection limits:</td>
+</tr><tr>
+	</tr><tr>
+	<td></td>
+	<td></td>
+	<td>Median two pixel (1-sigma) error in each of the wavelength regions listed below in the QSO rest-frame. Entries of -1.0 indicate that the wavelength region is not within the bounds of the spectrum. </td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[1215.7 - 1240.8 A]</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[1240.8 - 1399.8 A]</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[1399.8 - 1549.5 A]</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[1549.5 - 1908.7 A]</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[1908.7 - 2799.1 A]</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[2799.1 - 3969.0 A]</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[3969.0 - 8200.0 A]</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[8200.0 - 9200.0 A]</td>
+</tr><tr>
+	<td>num_5sigma_unided_inLyA</td>
+	<td></td>
+	<td>Number of absorption lines detected at >5sigma within the Ly-alpha forest</td>
+</tr><tr>
+	<td>num_5sigma_unided_notinLyA</td>
+	<td></td>
+	<td>Number of absorption lines detected at >5sigma outside of the Ly-alpha forest</td>
 </tr><tr>
 	<td>...</td>
 	<td>...</td>
