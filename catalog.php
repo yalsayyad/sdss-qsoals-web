@@ -249,12 +249,12 @@ require_once 'includes/funcs.inc';
 	<td>Redshift of absorption system</td>
 </tr><tr>
 	<td>grade</td>
-	<td>str</td>
+	<td>string</td>
 	<td>Quality grade of absorption identification</td>
 </tr><tr>
 	<td>type</td>
-	<td>str</td>
-	<td>Code describing the method(s) of detection:</td>
+	<td>string</td>
+	<td>Code describing the method(s) of detection; may be any combination of the following:</td>
 </tr><tr>
 	<td></td>
 	<td></td>
@@ -268,6 +268,43 @@ require_once 'includes/funcs.inc';
 	<td></td>
 	<td>F = Detected by a search for 3+ Fe II lines </td>
 </tr><tr>
+	<td>sys_num</td>
+	<td>int</td>
+	<td>Running count of systems detected in a spectrum, in order of detection</td>
+</tr><tr>
+	<td>beta</td>
+	<td>str</td>
+	<td>Velocity (v/c) of the absorption system in the quasar's rest frame</td>
+</tr><tr>
+	<td>DLA_flag_ND2012</td>
+	<td>int</td>
+	<td>Flag indicating the presence of a redshift-matched DLA, as determined by Notredaeme et al. 2012</td>
+</tr><tr>
+	<td>DLA_logNHI_ND2012</td>
+	<td>float</td>
+	<td>HI column density (N[HI]) from Noterdaeme et al. 2012</td>
+</tr><tr>
+	<td>DLA_logNHI_err_ND2012</td>
+	<td>float</td>
+	<td>Uncertainty of the HI column density from Noterdaeme et al. 2012</td>
+</tr><tr>
+	<td>DLA_zabs_ND2012</td>
+	<td>float</td>
+	<td>Redshift of the matching DLA from Noterdaeme et al. 2012</td>
+</tr><tr>
+	<td>MgII_class_score</td>
+	<td>float</td>
+	<td>Classification score for systems detected with Mg II (1.0 indicates approximately 100% certainty)</td>
+</tr><tr>
+	<td>CIV_class_score</td>
+	<td>float</td>
+	<td>Classification score for systems detected with C IV (1.0 indicates approximately 100% certainty)</td>
+</tr><tr>
+	<td>other_class_score</td>
+	<td>float</td>
+	<td>Classification score for systems detected with Fe II (1.0 indicates approximately 100% certainty)</td>
+</tr><tr>
+
 </table>
 
 <section id="examples">
