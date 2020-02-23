@@ -173,15 +173,15 @@ require_once 'includes/funcs.inc';
 </tr><tr>
 	<td>spec_medSNR</td>
 	<td>float</td>
-	<td>Median signal to noise of the full spectrum</td>
+	<td>Median spectral signal to noise of the full spectrum</td>
 </tr><tr>
 	<td>spec_aveSNR_red</td>
 	<td>float</td>
-	<td>Mean signal to noise >7200 Angstroms</td>
+	<td>Mean spectral signal to noise >7200 Angstroms</td>
 </tr><tr>
 	<td>spec_medSNR_red</td>
 	<td>float</td>
-	<td>Median signal to noise >7200 Angstroms</td>
+	<td>Median spectral signal to noise >7200 Angstroms</td>
 </tr><tr>
 	<td>w_limits</td>
 	<td>float array</td>
@@ -246,7 +246,7 @@ require_once 'includes/funcs.inc';
 <tbody><tr>
 	<td>z_abs</td>
 	<td>float</td>
-	<td>Redshift of absorption system</td>
+	<td>Redshift of absorption system (the mean redshift of the most prominent ions detected in absorption)</td>
 </tr><tr>
 	<td>grade</td>
 	<td>string</td>
@@ -304,13 +304,32 @@ require_once 'includes/funcs.inc';
 	<td>float</td>
 	<td>Classification score for systems detected with Fe II (1.0 indicates approximately 100% certainty)</td>
 </tr><tr>
+</table>
 
+<p><strong>Absorption Line-Level Data:</strong>
+<p>
+<!-- Table -->
+<table class="tight striped">
+<thead><tr>
+	<th>Name</th>
+	<th>Type</th>
+	<th>Description</th>
+</tr></thead>
+<tbody><tr>
+	<td>lambda_vac</td>
+	<td>float array</td>
+	<td>Array of laboratory wavelengths (\AA) for documented absorption lines, truncated to one decimal:</td>
+</tr><tr>
+	<td></td>
+	<td></td>
+	<td>[1025.7,  1215.7, 1238.8, 1260.4, 1302.2,  1304.4,  1334.5, 1393.8, 1402.8,  1526.7,  1548.2,  1550.8, 1608.5,  1656.9,  1670.8, 1854.7, 1862.8, 2026.1, 2056.3,  2260.8, 2374.5, 2382.8, 2586.7, 2594.5, 2600.2,   2796.4,  2803.5, 2853.0,  3242.9,  3934.8, 3969.6,  5891.5] </td>
+</tr><tr>
 </table>
 
 <section id="examples">
 <h3> Code Examples </h3>
 
-	<p> Britt, lots of options for code formatting. 
+	<!-- <p> Britt, lots of options for code formatting.--> 
 <pre>
 from astropy.io import fits
 data = fits.open('DR7_QSOALS_catalog_071614.fits')
